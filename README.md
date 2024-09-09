@@ -1,2 +1,8 @@
-# NetForge-Suite
-NetForge Suite is an all-in-one network toolkit designed to simplify network management and security tasks. It includes a MACChanger for altering MAC addresses, a Naive Network Mapper for scanning and mapping network devices, and integrates a Web Server and TCP Server for hosting applications and managing client connections. 
+# NetForge Suite
+
+**NetForge Suite** is a comprehensive toolkit designed for network management and manipulation. It brings together essential tools for both network exploration and control, featuring components such as:
+
+- **MACChanger**: A utility to modify the MAC address of network interfaces, enhancing privacy and testing network configurations.
+- **Naive Network Mapper**: A simple yet powerful tool to scan and map network devices, providing insight into network topology and potential vulnerabilities.
+- **Web Server**: A lightweight server designed to host and manage web applications, offering easy deployment and control over web-based resources.
+- **TCP Server**: A robust TCP server for managing and handling client connections, suitable for testing and monitoring TCP communications.
