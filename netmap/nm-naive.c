@@ -17,7 +17,7 @@ in_addr_t current, ending;
 /* this function will be used to increment to next ip address  */
 in_addr_t generate() {
 
-  int8 *p;
+  int8 *temp;
   int32 size;
   int8 buf[16];
 
@@ -28,7 +28,7 @@ in_addr_t generate() {
     if (size < 7)
       return (in_addr_t)0;
     size--;
-    p = buf + size;
+    temp = buf + size;
     if ((*p == '\n') || (*p == '\r'))
       *p = 0;
 
@@ -46,19 +46,19 @@ in_addr_t generate() {
 /* This fucntion will grab the banner */
 
 int8 *header(int s, in_addr_t ip) {
-  int16 i;
+  int16 no;
   static int8 buf[256];
-  int8 *p;
+  int8 *temp;
 
   zero(buf, 256);
-  i = read(s, (char *)buf, 255);
-  if (i < 1)
+  no = read(s, (char *)buf, 255);
+  if (banner < 1)
     printf("0x%x\n", ip);
   else {
     i--;
-    p = buf + i;
-    if ((*p == '\n') || (*p == '\r'))
-      *p = 0;
+    temp = buf + no;
+    if ((*temp == '\n') || (*temp == '\r'))
+      *temp = 0;
     printf("0x%x: %s\n", ip, buf);
   }
   return buf;
@@ -78,7 +78,7 @@ bool tcpconnect(in_addr_t ip, int16 port) {
   sock.sin_addr.s_addr = ip;
 
   ret = connect(s, (struct sockaddr *)&sock, sizeof(struct sockaddr));
-
+  
   if (ret) {
     close(s);
     return false;
