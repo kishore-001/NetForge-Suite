@@ -1,5 +1,5 @@
 flags=-O3 -Wall -std=c2x
-ldflags=/home/black/github/NetForge-Suite/libutils/libutils.o
+ldflags=../libutils/libutils.o
 
 all : clean nm-naive
 

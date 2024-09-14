@@ -25,12 +25,12 @@ MAC generatemac(void){
   MAC mac;
   x=(long)random(); // creates the two big random number
   y=(long)random();
-  mac.addr = ((a*b)% 281474976710656 ); // we are limmiting the address generation from 0 -> 281474976710656
+  mac.addr = ((x*y)% 281474976710656 ); // we are limmiting the address generation from 0 -> 281474976710656
   return mac; // now we can return a struct
 }
 
 
-int main(){
+int main(int argc, char** argv){
   srand(getpid()); // seed the random number generator
 
   return 0;
