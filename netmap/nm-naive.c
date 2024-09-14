@@ -29,8 +29,8 @@ in_addr_t generate() {
       return (in_addr_t)0;
     size--;
     temp = buf + size;
-    if ((*p == '\n') || (*p == '\r'))
-      *p = 0;
+    if ((*temp == '\n') || (*temp == '\r'))
+      *temp = 0;
 
     return inet_addr((char *)buf);
   }
@@ -52,10 +52,11 @@ int8 *header(int s, in_addr_t ip) {
 
   zero(buf, 256);
   no = read(s, (char *)buf, 255);
-  if (banner < 1)
+  if (no < 1)
     printf("0x%x\n", ip);
   else {
-    i--;
+    no--;
+
     temp = buf + no;
     if ((*temp == '\n') || (*temp == '\r'))
       *temp = 0;
@@ -78,7 +79,7 @@ bool tcpconnect(in_addr_t ip, int16 port) {
   sock.sin_addr.s_addr = ip;
 
   ret = connect(s, (struct sockaddr *)&sock, sizeof(struct sockaddr));
-  
+
   if (ret) {
     close(s);
     return false;
